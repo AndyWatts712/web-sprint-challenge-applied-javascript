@@ -33,7 +33,7 @@ function articleMaker(articleObj) {
     headline.classList.add('headline')
     author.classList.add('author')
     imgContainer.classList.add('img-container')
-    
+
     headline.textContent = articleObj.headline
     img.src = articleObj.authorPhoto
     authorName.textContent = articleObj.authorName
@@ -44,19 +44,46 @@ function articleMaker(articleObj) {
     author.appendChild(authorName)
     imgContainer.appendChild(img)
 
+    card.addEventListener('click', function (e) {
+        console.log(e.target.textContent)
+    })
     return card
 }
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
-    .then(function(resp) {
-        console.log(resp.data.articles.bootstrap[0].headline)
+    .then(function (resp) {
+        console.log(resp)
 
-        const article = articleMaker(resp.data.articles.bootstrap[0])
-        console.log(article)
+        resp.data.articles.bootstrap.forEach(articleInfo => {
+            let article = articleMaker(articleInfo)
+            const cardsContainer = document.querySelector('.cards-container')
+            cardsContainer.appendChild(article)
+        })
+        resp.data.articles.javascript.forEach(articleInfo => {
+            let article = articleMaker(articleInfo)
+            const cardsContainer = document.querySelector('.cards-container')
+            cardsContainer.appendChild(article)
+        })
+        resp.data.articles.jquery.forEach(articleInfo => {
+            let article = articleMaker(articleInfo)
+            const cardsContainer = document.querySelector('.cards-container')
+            cardsContainer.appendChild(article)
+        })
+        resp.data.articles.node.forEach(articleInfo => {
+            let article = articleMaker(articleInfo)
+            const cardsContainer = document.querySelector('.cards-container')
+            cardsContainer.appendChild(article)
+        })
+        resp.data.articles.technology.forEach(articleInfo => {
+            let article = articleMaker(articleInfo)
+            const cardsContainer = document.querySelector('.cards-container')
+            cardsContainer.appendChild(article)
+        })
 
-        const cardsContainer = document.querySelector('.cards-container')
-        cardsContainer.appendChild(article)
     })
-    .catch(function(err) {
+
+    // })
+    .catch(function (err) {
         console.log(err)
     })
+
