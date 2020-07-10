@@ -31,7 +31,6 @@ function header() {
 
     return header
 }
-console.log(header())
 
 const head = header()
 const divContainer = document.querySelector('.header-container')
