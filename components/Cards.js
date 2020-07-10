@@ -44,8 +44,8 @@ function articleMaker(articleObj) {
     author.appendChild(authorName)
     imgContainer.appendChild(img)
 
-    card.addEventListener('click', function (e) {
-        console.log(e.target.textContent)
+    card.addEventListener('click', function () {
+        console.log(headline.textContent)
     })
     return card
 }
