@@ -22,3 +22,29 @@
     <div class="right-button"> > </div>
   </div>
 */
+let imgRef = [
+  "./assets/carousel/mountains.jpeg", 
+  "./assets/carousel/computer.jpeg",
+  "./assets/carousel/trees.jpeg",
+  "./assets/carousel/turntable.jpeg"
+]
+function carouselMaker(imgRef) {
+  const carousel = document.createElement('div').classList.add('carousel')
+  const leftBtn = document.createElement('div').classList.add('left-button')
+  const img1 = document.createElement('img').src = imgRef[0]
+  const img2 = document.createElement('img').src = imgRef[1]
+  const img3 = document.createElement('img').src = imgRef[2]
+  const img4 = document.createElement('img').src = imgRef[3]
+  const rightBtn = document.createElement('div').classList.add('right-button')
+
+  // carousel.appendChild(leftBtn)
+  // carousel.appendChild(img1)
+  // carousel.appendChild(img2)
+  // carousel.appendChild(img3)
+  // carousel.appendChild(img4)
+  // carousel.appendChild(rightBtn)
+
+  return carousel
+}
+
+console.log(carouselMaker())
